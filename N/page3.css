@@ -1,0 +1,1226 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: #111;
+}
+
+
+/* =================================
+   BACKGROUND
+================================= */
+
+.background {
+    position: fixed;
+    inset: 0;
+
+    background-image: url("bg.jpeg");
+    background-size: cover;
+    background-position: center;
+
+    transform: scale(1.03);
+
+    z-index: -5;
+}
+
+.dark-overlay {
+    position: fixed;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(20, 10, 12, 0.18),
+            rgba(20, 8, 12, 0.52)
+        );
+
+    z-index: -4;
+}
+
+
+/* =================================
+   PAGE
+================================= */
+
+.page3 {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+
+    color: white;
+}
+
+
+/* =================================
+   INTRO
+================================= */
+
+.intro {
+    position: absolute;
+
+    top: 8%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    opacity: 0;
+
+    animation:
+        intro 1.3s ease forwards;
+
+    animation-delay: 0.4s;
+
+    z-index: 5;
+}
+
+.intro p {
+    font-size: 17px;
+    letter-spacing: 3px;
+    font-style: italic;
+
+    white-space: nowrap;
+
+    text-shadow:
+        0 3px 15px rgba(0, 0, 0, 0.6);
+}
+
+
+/* =================================
+   CAKE SCENE
+================================= */
+
+.cake-scene {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 430px;
+    height: 500px;
+
+    transform:
+        translate(-50%, -48%);
+
+    z-index: 5;
+}
+
+
+/* =================================
+   CAKE
+================================= */
+
+.cake {
+    position: absolute;
+
+    left: 50%;
+    top: 45px;
+
+    width: 320px;
+    height: 300px;
+
+    transform:
+        translateX(-50%);
+
+    filter:
+        drop-shadow(
+            0 22px 25px
+            rgba(0, 0, 0, 0.35)
+        );
+
+    overflow: visible;
+}
+
+
+/* =================================
+   CAKE HALVES
+================================= */
+
+.cake-half {
+    position: absolute;
+
+    top: 0;
+
+    width: 160px;
+    height: 300px;
+
+    overflow: hidden;
+
+    z-index: 10;
+
+    transition:
+        transform 1.1s
+        cubic-bezier(.18, .8, .2, 1);
+}
+
+
+/* KIRI */
+
+.cake-half.left {
+    left: 0;
+}
+
+
+/* KANAN */
+
+.cake-half.right {
+    right: 0;
+}
+
+
+/* =================================
+   LAYER CAKE
+================================= */
+
+.layer {
+    position: absolute;
+
+    width: 320px;
+    height: auto;
+
+    left: 0;
+
+    border-radius:
+        12px 12px 18px 18px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #7b2332,
+            #9d3b48 50%,
+            #6c1d2a
+        );
+
+    box-shadow:
+        inset 0 -10px 0
+        rgba(60, 10, 18, 0.25),
+
+        inset 0 5px 0
+        rgba(255, 255, 255, 0.08);
+}
+
+
+/* =================================
+   CAKE RIGHT - MIRROR POSISI
+================================= */
+
+/*
+   Bagian kanan mengambil sisi kanan
+   dari cake asli.
+*/
+
+.cake-half.right .layer {
+    left: -160px;
+}
+
+
+/* =================================
+   BOTTOM
+================================= */
+
+.layer.bottom {
+    bottom: 0;
+
+    height: 88px;
+
+    transform:
+        translateY(-500px);
+
+    animation:
+        dropBottom
+        1s
+        cubic-bezier(.2, .8, .2, 1)
+        forwards;
+
+    animation-delay: 0.7s;
+}
+
+
+/* =================================
+   MIDDLE
+================================= */
+
+.layer.middle {
+    bottom: 75px;
+
+    height: 84px;
+
+    transform:
+        translateY(-500px);
+
+    animation:
+        dropMiddle
+        1s
+        cubic-bezier(.2, .8, .2, 1)
+        forwards;
+
+    animation-delay: 1.15s;
+}
+
+
+/* =================================
+   TOP
+================================= */
+
+.layer.top {
+    bottom: 147px;
+
+    height: 77px;
+
+    transform:
+        translateY(-500px);
+
+    animation:
+        dropTop
+        1s
+        cubic-bezier(.2, .8, .2, 1)
+        forwards;
+
+    animation-delay: 1.6s;
+}
+
+
+/* =================================
+   CREAM
+================================= */
+
+.cream {
+    position: absolute;
+
+    top: -7px;
+    left: 0;
+
+    width: 320px;
+    height: 17px;
+
+    border-radius: 50%;
+
+    background:
+        #fff1df;
+
+    box-shadow:
+        0 4px 5px
+        rgba(0, 0, 0, 0.12);
+}
+
+
+/* =================================
+   DECORATION
+================================= */
+
+.decoration {
+    position: absolute;
+
+    bottom: 14px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    display: flex;
+
+    gap: 48px;
+
+    color:
+        #f8d9a4;
+
+    font-size: 10px;
+}
+
+
+/* =================================
+   CANDLE
+================================= */
+
+.candle-wrap {
+    position: absolute;
+
+    left: 50%;
+    top: -15px;
+
+    width: 45px;
+    height: 100px;
+
+    transform:
+        translateX(-50%)
+        translateY(-100px);
+
+    opacity: 0;
+
+    animation:
+        candleIn
+        1s ease forwards;
+
+    animation-delay: 2.55s;
+
+    z-index: 30;
+
+    transition:
+        opacity 0.15s ease,
+        transform 0.2s ease;
+}
+
+
+.candle {
+    position: absolute;
+
+    left: 50%;
+    bottom: 0;
+
+    width: 20px;
+    height: 60px;
+
+    transform:
+        translateX(-50%);
+
+    border-radius: 5px;
+
+    background:
+        repeating-linear-gradient(
+            135deg,
+            #f5dfbd 0px,
+            #f5dfbd 6px,
+            #9c3947 6px,
+            #9c3947 11px
+        );
+}
+
+
+/* =================================
+   FLAME
+================================= */
+
+.flame {
+    position: absolute;
+
+    left: 50%;
+    top: -35px;
+
+    width: 25px;
+    height: 35px;
+
+    transform:
+        translateX(-50%)
+        rotate(45deg);
+
+    border-radius:
+        50% 50% 50% 0;
+
+    background:
+        #ffd36a;
+
+    box-shadow:
+        0 0 20px #ffc857,
+        0 0 40px
+        rgba(255, 190, 70, 0.6);
+
+    animation:
+        flame 0.8s
+        infinite alternate
+        ease-in-out;
+}
+
+
+.flame-inner {
+    position: absolute;
+
+    width: 12px;
+    height: 18px;
+
+    left: 5px;
+    top: 7px;
+
+    border-radius:
+        50% 50% 50% 0;
+
+    background:
+        #fff5cf;
+}
+
+
+/* =================================
+   CUT LINE
+================================= */
+
+.cut-line {
+    position: absolute;
+
+    left: 50%;
+    top: 35px;
+
+    width: 3px;
+    height: 235px;
+
+    transform:
+        translateX(-50%)
+        scaleY(0);
+
+    transform-origin:
+        top;
+
+    background:
+        rgba(255, 245, 225, 0.95);
+
+    box-shadow:
+        0 0 12px
+        rgba(255, 255, 255, 0.8);
+
+    opacity: 0;
+
+    z-index: 25;
+
+    pointer-events: none;
+}
+
+
+/* =================================
+   MESSAGE
+================================= */
+
+.hidden-message {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 600px;
+    max-width: 90vw;
+
+    transform:
+        translate(-50%, -50%)
+        scaleX(0.02)
+        scaleY(0.8);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    z-index: 2;
+
+    transition:
+        transform 1.1s
+        cubic-bezier(.15, .8, .2, 1),
+        opacity 0.35s ease;
+}
+
+
+/* =================================
+   GLASS MESSAGE
+================================= */
+
+.message-card {
+    width: 100%;
+}
+
+
+.glass {
+    width: 100%;
+
+    min-height: 180px;
+
+    padding:
+        30px 55px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    border-radius: 26px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.22),
+            rgba(255, 255, 255, 0.07)
+        );
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.32);
+
+    backdrop-filter:
+        blur(22px);
+
+    -webkit-backdrop-filter:
+        blur(22px);
+
+    box-shadow:
+        0 20px 55px
+        rgba(0, 0, 0, 0.28),
+
+        inset 0 1px
+        rgba(255, 255, 255, 0.4);
+}
+
+
+.small-title {
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 10px;
+
+    opacity: 0.8;
+}
+
+
+.glass h1 {
+    font-size:
+        clamp(30px, 6vw, 48px);
+
+    font-weight: normal;
+
+    margin-bottom: 12px;
+}
+
+
+.divider {
+    width: 55px;
+    height: 1px;
+
+    margin:
+        0 auto 18px;
+
+    background:
+        rgba(255, 255, 255, 0.7);
+}
+
+
+.glass p {
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    opacity: 0.92;
+}
+
+
+.signature {
+    margin-top: 16px;
+
+    font-size: 13px;
+
+    font-style: italic;
+
+    opacity: 0.8;
+}
+
+
+/* =================================
+   PULL EFFECT
+================================= */
+
+.pull {
+    position: absolute;
+
+    top: 50%;
+
+    width: 10px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 235, 190, 0.9);
+
+    filter:
+        blur(1px);
+
+    opacity: 0;
+
+    z-index: 1;
+}
+
+
+.pull-left {
+    right: 50%;
+}
+
+
+.pull-right {
+    left: 50%;
+}
+
+
+/* =================================
+   SAAT CAKE DIPOTONG
+================================= */
+
+
+/* KUE BUKA */
+
+.cake.cutting .cake-half.left {
+    transform:
+        translateX(-155px)
+        rotate(-3deg);
+}
+
+.cake.cutting .cake-half.right {
+    transform:
+        translateX(155px)
+        rotate(3deg);
+}
+
+
+/* =================================
+   LILIN HILANG
+================================= */
+
+.cake.cutting .candle-wrap {
+    opacity: 0 !important;
+
+    transform:
+        translateX(-50%)
+        translateY(-25px);
+
+    animation: none;
+}
+
+
+/* =================================
+   CUT LINE
+================================= */
+
+/*
+   Hanya terlihat sebentar.
+   Setelah 0.25 detik langsung hilang.
+*/
+
+.cake.cutting .cut-line {
+    animation:
+        quickCut 0.25s ease forwards;
+}
+
+
+/* =================================
+   MESSAGE KELUAR
+================================= */
+
+.cake.cutting .hidden-message {
+    opacity: 1;
+
+    transform:
+        translate(-50%, -50%)
+        scaleX(1)
+        scaleY(1);
+
+    transition-delay:
+        0.22s;
+}
+
+
+/* =================================
+   PULL EFFECT
+================================= */
+
+.cake.cutting .pull-left {
+    animation:
+        pullLeft
+        0.9s
+        cubic-bezier(.2, .8, .2, 1)
+        forwards;
+}
+
+
+.cake.cutting .pull-right {
+    animation:
+        pullRight
+        0.9s
+        cubic-bezier(.2, .8, .2, 1)
+        forwards;
+}
+
+
+/* =================================
+   CUT BUTTON
+================================= */
+
+.cut-button {
+    position: absolute;
+
+    left: 50%;
+    bottom: 65px;
+
+    transform:
+        translateX(-50%);
+
+    padding:
+        13px 25px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.2);
+
+    border-radius: 30px;
+
+    background:
+        rgba(255, 255, 255, 0.16);
+
+    backdrop-filter:
+        blur(12px);
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    opacity: 0;
+
+    animation:
+        buttonIn
+        1s ease forwards;
+
+    animation-delay: 3.2s;
+
+    z-index: 40;
+}
+
+
+.cut-button:hover {
+    transform:
+        translateX(-50%)
+        translateY(-3px);
+
+    background:
+        rgba(255, 255, 255, 0.28);
+}
+
+
+/* =================================
+   HINT
+================================= */
+
+.hint {
+    position: absolute;
+
+    left: 50%;
+    bottom: 25px;
+
+    transform:
+        translateX(-50%);
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+
+    opacity: 0.75;
+
+    white-space: nowrap;
+}
+
+
+/* =================================
+   NEXT
+================================= */
+
+.next-button {
+    position: absolute;
+
+    right: 35px;
+    bottom: 30px;
+
+    padding:
+        12px 22px;
+
+    border-radius: 25px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.3);
+
+    background:
+        rgba(255, 255, 255, 0.1);
+
+    backdrop-filter:
+        blur(10px);
+
+    color: white;
+
+    font-family: inherit;
+
+    cursor: pointer;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: 0.4s ease;
+
+    z-index: 50;
+}
+
+
+.next-button.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+/* =================================
+   ANIMATIONS
+================================= */
+
+@keyframes intro {
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+@keyframes dropBottom {
+
+    0% {
+        transform:
+            translateY(-500px)
+            rotate(-8deg);
+    }
+
+    70% {
+        transform:
+            translateY(12px)
+            rotate(2deg);
+    }
+
+    100% {
+        transform:
+            translateY(0)
+            rotate(0);
+    }
+}
+
+
+@keyframes dropMiddle {
+
+    0% {
+        transform:
+            translateY(-500px)
+            rotate(8deg);
+    }
+
+    70% {
+        transform:
+            translateY(12px)
+            rotate(-2deg);
+    }
+
+    100% {
+        transform:
+            translateY(0)
+            rotate(0);
+    }
+}
+
+
+@keyframes dropTop {
+
+    0% {
+        transform:
+            translateY(-500px)
+            rotate(-7deg);
+    }
+
+    70% {
+        transform:
+            translateY(12px)
+            rotate(2deg);
+    }
+
+    100% {
+        transform:
+            translateY(0)
+            rotate(0);
+    }
+}
+
+
+@keyframes candleIn {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateX(-50%)
+            translateY(-100px);
+    }
+
+    70% {
+        transform:
+            translateX(-50%)
+            translateY(8px);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translateX(-50%)
+            translateY(0);
+    }
+}
+
+
+@keyframes flame {
+
+    from {
+        transform:
+            translateX(-50%)
+            rotate(42deg)
+            scale(0.95);
+    }
+
+    to {
+        transform:
+            translateX(-50%)
+            rotate(48deg)
+            scale(1.05);
+    }
+}
+
+
+@keyframes buttonIn {
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* =================================
+   CUT EFFECT
+================================= */
+
+@keyframes quickCut {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translateX(-50%)
+            scaleY(0);
+    }
+
+    25% {
+        opacity: 1;
+
+        transform:
+            translateX(-50%)
+            scaleY(1);
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translateX(-50%)
+            scaleY(1);
+    }
+}
+
+
+/* =================================
+   PULL LEFT
+================================= */
+
+@keyframes pullLeft {
+
+    0% {
+        width: 5px;
+        opacity: 0;
+    }
+
+    25% {
+        width: 70px;
+        opacity: 0.9;
+    }
+
+    60% {
+        width: 200px;
+        opacity: 0.7;
+    }
+
+    100% {
+        width: 280px;
+        opacity: 0;
+    }
+}
+
+
+/* =================================
+   PULL RIGHT
+================================= */
+
+@keyframes pullRight {
+
+    0% {
+        width: 5px;
+        opacity: 0;
+    }
+
+    25% {
+        width: 70px;
+        opacity: 0.9;
+    }
+
+    60% {
+        width: 200px;
+        opacity: 0.7;
+    }
+
+    100% {
+        width: 280px;
+        opacity: 0;
+    }
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 600px) {
+
+    .cake-scene {
+        transform:
+            translate(-50%, -48%)
+            scale(0.8);
+    }
+
+    .intro p {
+        font-size: 13px;
+    }
+
+    .hidden-message {
+        width: 88vw;
+    }
+
+    .glass {
+        padding:
+            28px 22px;
+    }
+
+    .glass p {
+        font-size: 13px;
+    }
+
+    .next-button {
+        right: 20px;
+        bottom: 20px;
+    }
+}
+
+/* =================================
+   SAAT CAKE SUDAH DIBELAH
+================================= */
+
+/* Ucapan naik ke depan */
+.cake.cutting .hidden-message {
+    z-index: 50;
+}
+
+/* Potongan cake tetap di samping,
+   tapi tidak menutupi ucapan */
+.cake.cutting .cake-half {
+    z-index: 10;
+}
+
+/* Ucapan berada di tengah celah cake */
+.cake.cutting .hidden-message {
+    pointer-events: none;
+}
+
+/* =================================
+   CAKE MENYESUAIKAN MESSAGE
+================================= */
+
+.hidden-message {
+    width: 560px;
+}
+
+
+/* posisi cake setelah dibelah */
+
+.cake.cutting .cake-half.left {
+    transform:
+        translateX(-180px)
+        rotate(-3deg);
+}
+
+.cake.cutting .cake-half.right {
+    transform:
+        translateX(180px)
+        rotate(3deg);
+}
+
+
+/* supaya cake berada di ujung message */
+
+.cake.cutting .cake-half.left {
+    margin-right: 0;
+}
+
+.cake.cutting .cake-half.right {
+    margin-left: 0;
+}
+
+
+/* ukuran cake tetap proporsional */
+
+.cake-half {
+    height: 300px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .hidden-message {
+        width: 86vw;
+    }
+
+    .cake.cutting .cake-half.left {
+        transform:
+            translateX(-120px)
+            rotate(-3deg);
+    }
+
+    .cake.cutting .cake-half.right {
+        transform:
+            translateX(120px)
+            rotate(3deg);
+    }
+}
+
+/* =================================
+   CAKE SETINGGI UCAPAN
+================================= */
+
+.cake.cutting .cake-half {
+    transform:
+        translateY(0)
+        scaleY(0.78);
+    transform-origin: center bottom;
+}
